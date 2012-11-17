@@ -22,7 +22,7 @@ Magento default mysql settings
  *Watch* **opened_tables** *status value*<br/>
  *Start with 4096*<br/>
 
-+ **open_files_limit**<br/>
+4. **open_files_limit**<br/>
 ## MyISAM tables require up to 2 file handlers 
 ## Each connection is file handler too
 ## Safe to set to 65535 in most systems
