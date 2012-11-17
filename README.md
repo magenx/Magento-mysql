@@ -30,7 +30,7 @@ Magento default mysql settings
 5. **table_definition_cache**<br/>
  *Cache table definitions (CREATE TABLE)*<br/>
  *Only one entry  per table*<br/>
- *Watch Opened_table_definitions*<br/>
+ *Watch* **Opened_table_definitions**<br/>
  *Set to number of tables + 10% unless 50K+ tables*<br/>
 
 6. **back_log**<br/>
@@ -69,7 +69,7 @@ Magento default mysql settings
 14. **tmp_table_size**<br/>
 15. **max_heap_table_size**<br/>
  *Typically set to same value (workload based)*<br/>
- *Created_tmp_disk_tables status variable*<br/> 
+ **Created_tmp_disk_tables** *status variable*<br/> 
  *Beware BLOB/TEXT fields cause on disk table with any size.*<br/>
 
 16. **query_cache_size**<br/>
@@ -79,7 +79,7 @@ Magento default mysql settings
 
 17. **sort_buffer_size**<br/>
  *In memory buffer used for sorting*<br/>
- *Watch sort_merge_passes*<br/>
+ *Watch* **sort_merge_passes**<br/>
  *Consider setting for session for large queries*<br/>
  *Values up to 1MB are good default*<br/>
  *Large values hurt performance of small queries*<br/>
@@ -96,7 +96,7 @@ Magento default mysql settings
  *Buffer for reading rows in sorted offer*<br/>
  *Specifies Maximum Value*<br/>
  *Values around 16MB often make sense*<br/>
- *Do not mix with* read_buffer_size<br/>
+ *Do not mix with* **read_buffer_size**<br/>
 
 21. **Tmpdir**<br/>
  *Specify location of temporary directory*<br/>
@@ -111,10 +111,10 @@ Magento default mysql settings
  *Up to 30% of memory if using MyISAM only*<br/>
 
 2. **myisam_recover**<br/>
- *Automatically repair corrupted MyISAM tables after crash.  BACKUP,FORCE is a good value.*<br/>
+ *Automatically repair corrupted MyISAM tables after crash.* **BACKUP,FORCE** *is a good value.*<br/>
 
 3. **myisam_sort_buffer_size**<br/>
- *Buffer used for building MyISAM indexes by Sort.   8MB-256MB are good values*<br/>
+ *Buffer used for building MyISAM indexes by Sort. 8MB-256MB are good values*<br/>
 
 4. **low_priority_updates**<br/>
  *Allow higher concurrency for SELECTs*<br/>
@@ -122,7 +122,7 @@ Magento default mysql settings
 
 5. **bulk_insert_buffer_size**<br/>
  *Buffer to optimize Bulk Inserts*<br/>
- *Values of 1/4 of key_buffer_size make sense*<br/>
+ *Values of 1/4 of* **key_buffer_size** *make sense*<br/>
  *Note it is per connection value*<br/>
 
 		INNODB MEMORY SETTINGS
@@ -138,7 +138,7 @@ Magento default mysql settings
  *Not only reduce writes but help contention*<br/> 
 
 4. **innodb_ibuf_max_size**<br/>
- *Control size of Insert buffer.  Default is 1/2 of Buffer pool. Smaller values are good for SSD*<br/>
+ *Control size of Insert buffer. Default is 1/2 of Buffer pool. Smaller values are good for SSD*<br/>
 
 		INNODB IO OPTIONS
 
@@ -148,7 +148,7 @@ Magento default mysql settings
 
 2. **Innodb_flush_method**<br/>
  *Controls how Innodb Performs IO*<br/>
- *O_DIRECT good value for most servers*<br/>
+ * **O_DIRECT** *good value for most servers*<br/>
 
 3. **innodb_auto_lru_dump**<br/>
  *Percona Server Feature to warmup quickly*<br/>
@@ -208,7 +208,7 @@ Magento default mysql settings
  *Enable Slow Query Log. Old but very helpful.*<br/>
 
 11. **long_query_time**<br/>
- *Especially with long_query_time set to 0 periodically to get sample of the load*<br/>
+ *Especially with* **long_query_time** *set to 0 periodically to get sample of the load*<br/>
 
 12. **log_slow_verbosity=full**<br/>
  *Get a lot more data about queries in Percona Server*<br/>
