@@ -7,7 +7,7 @@ Magento default mysql settings
 >default/startup settings for mysql database.
 >please read this before changing anything!
 
-General Options
+    General Options
 
 + **max_connections**<br/>
 * *How many connections to allow. Watch* **max_used_connections** *value*
