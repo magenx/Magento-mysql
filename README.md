@@ -4,7 +4,7 @@
 Magento default mysql settings
 ==============================
 
->default/startup settings for mysql database.
+>default/startup settings for mysql database.<br/>
 >please read this before changing anything!
 
     GENERAL OPTIONS
@@ -13,8 +13,8 @@ Magento default mysql settings
 * *How many connections to allow. Watch* **max_used_connections** *value*
 
 + **thread_cache**<br/>
-## Cache to prevent excessive thread creation
-## 50-100 is good value. Watch threads_created
+ Cache to prevent excessive thread creation<br/>
+ 50-100 is good value. Watch threads_created<br/>
 
 + **table_cache/table_open_cache**<br/>
 ## Cache of opened table instances 
