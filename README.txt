@@ -1,15 +1,17 @@
 ﻿magento-mysql
-=============
+ -------------
 
 Magento default mysql settings
+==============================
 
 ### default/startup settings for mysql database.
 ### please read this before changing anything!
+
 ############################################################################################
 #####################    General Options    ################################################
 ############################################################################################
-## -> max_connections
-## How many connections to allow. Watch max_used_connections value
+- -> max_connections
+*How many connections to allow. Watch max_used_connections value*
 
 ## -> thread_cache
 ## Cache to prevent excessive thread creation
