@@ -148,7 +148,7 @@ Magento default mysql settings
 
 2. **Innodb_flush_method**<br/>
  *Controls how Innodb Performs IO*<br/>
- ***O_DIRECT** *good value for most servers*<br/>
+ **O_DIRECT** *good value for most servers*<br/>
 
 3. **innodb_auto_lru_dump**<br/>
  *Percona Server Feature to warmup quickly*<br/>
