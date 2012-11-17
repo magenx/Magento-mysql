@@ -10,7 +10,7 @@ Magento default mysql settings
 ############################################################################################
 #####################    General Options    ################################################
 ############################################################################################
-- -> max_connections
+- -> max_connections<br/>
 *How many connections to allow. Watch max_used_connections value*
 
 ## -> thread_cache
