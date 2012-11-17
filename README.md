@@ -9,18 +9,18 @@ Magento default mysql settings
 
     GENERAL OPTIONS
 
-1 **max_connections**<br/>
-* *How many connections to allow. Watch* **max_used_connections** *value*
+1. **max_connections**<br/>
+ *How many connections to allow. Watch* **max_used_connections** *value*
 
-2 **thread_cache**<br/>
+2. **thread_cache**<br/>
  *Cache to prevent excessive thread creation*<br/>
  *50-100 is good value. Watch* **threads_created**<br/>
 
-+ **table_cache/table_open_cache**<br/>
-## Cache of opened table instances 
-## Single table may have multiple entries
-## Watch opened_tables  status value
-## Start with 4096
+3. **table_cache/table_open_cache**<br/>
+ *Cache of opened table instances*<br/>
+ *Single table may have multiple entries*<br/>
+ *Watch* **opened_tables** *status value*<br/>
+ *Start with 4096*<br/>
 
 + **open_files_limit**<br/>
 ## MyISAM tables require up to 2 file handlers 
