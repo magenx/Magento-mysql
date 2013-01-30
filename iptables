@@ -1,4 +1,4 @@
-# allow MySQL to listen to requests from your separate web server and your home ip:
+# allow MySQL to listen to requests ONLY from your separate web server and your home ip:
 iptables -A INPUT -p tcp -s serverIPaddress --dport 3306 -j ACCEPT
 iptables -A INPUT -p tcp -s homeIPaddress --dport 3306 -j ACCEPT
 iptables -A INPUT -p tcp --dport 3306 -j DROP
