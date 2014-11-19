@@ -1,11 +1,11 @@
 #!/bin/bash
  
-### System Setup ###
+### SYSTEM SETUP ###
 BACKUP=/tmp/backup.$$
 NOW=$(date +"%d-%m-%Y")
 DELDATE=$(date -d "-7 days" +"%d-%m-%Y")
  
-### MySQL Setup ###
+### MYSQL SETUP ###
 MUSER="xxx"
 MPASS="xxx"
 MHOST="localhost"
@@ -13,7 +13,7 @@ MYSQL="$(which mysql)"
 MYSQLDUMP="$(which mysqldump)"
 GZIP="$(which gzip)"
  
-### FTP server Setup ###
+### FTP SETUP ###
 FTPD="/backup"
 FTPU="xxxxxx"
 FTPP="xxxxxx"
