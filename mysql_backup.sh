@@ -1,5 +1,8 @@
 #!/bin/bash
- 
+
+### CHECK FOR NCFTP PACKAGE ###
+rpm -qa | grep -qw ncftp || yum -y install ncftp
+
 ### SYSTEM SETUP ###
 BACKUP=/tmp/backup.$$
 NOW=$(date +"%d-%m-%Y")
