@@ -5,7 +5,8 @@ rpm -qa | grep -qw ncftp || yum -y install ncftp
 
 ### SYSTEM SETUP ###
 BACKUP=/tmp/backup.$$
-NOW=$(date +"%d-%m-%Y")
+TIME=$(date +"%H-%M-%S")
+DAYS=$(date +"%d-%m-%Y")
 DELDATE=$(date -d "-7 days" +"%d-%m-%Y")
  
 ### MYSQL SETUP ###
@@ -29,11 +30,11 @@ EMAILID="admin@xxxxxx.com"
 [ ! -d ${BACKUP} ] && mkdir -p ${BACKUP} || :
 
 ### MYSQLDUMP ###
-DBS="$(${MYSQL} -u ${MUSER} -h ${MHOST} -p${MPASS} -Bse 'show databases')"
+DBS="$(${MYSQL} -u ${MUSER} -h ${MHOST} -p${MPASS} -Bse 'show databases' | grep -v performance_schema)"
 for db in ${DBS}
 do
- FILE=${BACKUP}/mysql-${db}.${NOW}.sql.gz
- ${MYSQLDUMP} -u ${MUSER} -h ${MHOST} -p${MPASS} --single-transaction --routines --triggers  ${db} | ${GZIP} > ${FILE}
+ FILE=${BACKUP}/mysql-${db}.${DAYS}.${TIME}.sql.gz
+ ${MYSQLDUMP} -u ${MUSER} -h ${MHOST} -p${MPASS} --single-transaction --routines --triggers --events ${db} | ${GZIP} > ${FILE}
 done
 
 ### FTP UPLOAD ###
@@ -43,8 +44,8 @@ rm *.gz
 cd ${FTPD}
 rmdir ${DELDATE}
 mkdir ${FTPD}
-mkdir ${FTPD}/${NOW}
-cd ${FTPD}/${NOW}
+mkdir ${FTPD}/${DAYS}
+cd ${FTPD}/${DAYS}
 lcd ${BACKUP}
 mput *
 quit
@@ -55,7 +56,7 @@ if [ "$?" == "0" ]; then
  rm -f ${BACKUP}/*
 else
  CALLBACK=/tmp/backup.failed
- echo "Date: ${NOW}">${CALLBACK}
+ echo "Date: ${DAYS}">${CALLBACK}
  echo "Hostname: $(hostname)" >>${CALLBACK}
  echo "Backup failed" >>${CALLBACK}
  mail  -s "BACKUP FAILED" "${EMAILID}" <${CALLBACK}
