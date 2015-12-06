@@ -17,14 +17,14 @@ LOCALPATH="/var/www/html/magento/"
 EXCLUDEFROM="/root/exclude.txt"
 
 echo "RSYNC FILES FROM REMOTE SERVER"
-rsync -vrltpD --exclude-from=${EXCLUDEFROM} ${REMOTEUSER}@${SERVERIP}:${REMOTEPATH} ${LOCALPATH}
+rsync -vrltpD --exclude-from=${EXCLUDEFROM} ${REMOTEUSER}@${REMOTESERVERIP}:${REMOTEPATH} ${LOCALPATH}
 chown -R ${LOCALUSER}:${LOCALUSER} ${LOCALPATH}
 echo "<<<   ----   done   ----   >>>"
 
 echo "MYSQLDUMP ON REMOTE SERVER"
 ssh ${REMOTEUSER}@${REMOTESERVERIP} "mysqldump -u ${MYSQLUSER} -h ${MYSQLHOST} -p${MYSQLPASS} ${OPTIONS} ${MYSQLDATABASE} | gzip > ${REMOTEPATH}${FILE}"
 
-rsync -avz --remove-source-files ${REMOTEUSER}@${SERVERIP}:${REMOTEPATH}${FILE} .
+rsync -avz --remove-source-files ${REMOTEUSER}@${REMOTESERVERIP}:${REMOTEPATH}${FILE} .
 
 echo "DATABASE IMPORT. PLEASE WAIT."
 zcat ${FILE} | mysql -f ${MYSQLDATABASE}
