@@ -9,7 +9,7 @@ MYSQLDATABASE=""
 MYSQLUSER=""
 MYSQLPASS=""
 MYSQLHOST=""
-SERVERIP=""
+REMOTESERVERIP=""
 REMOTEUSER=""
 LOCALUSER=""
 REMOTEPATH="/var/www/html/magento/"
@@ -22,7 +22,7 @@ chown -R ${LOCALUSER}:${LOCALUSER} ${LOCALPATH}
 echo "<<<   ----   done   ----   >>>"
 
 echo "MYSQLDUMP ON REMOTE SERVER"
-ssh ${REMOTEUSER}@${SERVERIP} "mysqldump -u ${MYSQLUSER} -h ${MYSQLHOST} -p${MYSQLPASS} ${OPTIONS} ${MYSQLDATABASE} | gzip > ${REMOTEPATH}${FILE}"
+ssh ${REMOTEUSER}@${REMOTESERVERIP} "mysqldump -u ${MYSQLUSER} -h ${MYSQLHOST} -p${MYSQLPASS} ${OPTIONS} ${MYSQLDATABASE} | gzip > ${REMOTEPATH}${FILE}"
 
 rsync -avz --remove-source-files ${REMOTEUSER}@${SERVERIP}:${REMOTEPATH}${FILE} .
 
