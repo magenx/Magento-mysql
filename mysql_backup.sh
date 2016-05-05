@@ -53,7 +53,7 @@ EOF
  
 ### ALERT IF FAILED ###
 if [ "$?" == "0" ]; then
- rm -f ${BACKUP}/*
+ find ${BACKUP}/ -type f -name "*.gz" -exec rm -rf {} \; 
 else
  CALLBACK=/tmp/backup.failed
  echo "Date: ${DAYS}">${CALLBACK}
